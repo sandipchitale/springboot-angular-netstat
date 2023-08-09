@@ -1,0 +1,48 @@
+:host {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) 1fr;
+}
+
+.wrapper {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+
+  &.busy {
+    cursor: wait;
+  }
+
+  main {
+    display: grid;
+    grid-auto-columns: minmax(200px, auto);
+    grid-auto-flow: column;
+    grid-auto-rows: 1fr;
+    overflow: auto;
+    padding: 1rem;
+
+    textarea {
+      font-family: monospace;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 100%;
+      border: 1px solid #ddd;
+
+      th {
+        text-align: left;
+      }
+      th, td {
+        padding: 16px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep .selected {
+  background-color: yellow;
+}
